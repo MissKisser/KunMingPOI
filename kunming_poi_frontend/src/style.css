@@ -1,0 +1,172 @@
+/**
+ * 全局深色大屏基础样式
+ * @author Hackerdallas
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+/* 引入科技感字体 */
+@font-face {
+  font-family: "YouShe";
+  src: url("https://jiaofuoss.ynmaker.net/fonts/YouShe.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MiSans-Normal";
+  src: url("https://jiaofuoss.ynmaker.net/fonts/MiSans/MiSans-Normal.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MiSans-Demibold";
+  src: url("https://jiaofuoss.ynmaker.net/fonts/MiSans/MiSans-Demibold.ttf") format("truetype");
+}
+
+:root {
+  /* 品牌色 */
+  --primary-color: #96F8FF;
+  --primary-color-5: rgba(150, 248, 255, .5);
+  --secondary-color: #4C99BF;
+  --accent-color: #A6FFFF;
+
+  /* 功能色 - 图表 */
+  --chart-primary: #3EE5FF;
+  --chart-secondary: #4fc8ff;
+  --chart-gradient-start: rgba(62, 229, 255, 0.1);
+  --chart-gradient-end: #3EE5FF;
+  --chart-highlight: #00e5ff;
+
+  /* 功能色 - 组件 */
+  --panel-bg: rgba(0, 18, 40, 0.9);
+  --panel-bg-light: rgba(0, 12, 30, 0.72);
+  --panel-border: rgba(0, 200, 255, 0.3);
+  --panel-border-accent: rgba(0, 200, 255, 0.35);
+  --text-highlight: #00c8ff;
+  --text-primary: #fff;
+  --text-secondary: #e0f4ff;
+  --text-muted: #89a;
+
+  /* 阴影 */
+  --glow-primary: 0 0 10px rgba(0, 200, 255, 0.15);
+  --glow-chart: 0 0 10px rgba(62, 229, 255, 0.5);
+  --glow-panel: 0 0 15px rgba(0, 200, 255, 0.2);
+
+  /* 字号 */
+  --text-md: 16px;
+  --text-sm: 14px;
+  --text-xs: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'MiSans-Normal', 'Outfit', 'PingFang SC', sans-serif;
+  background: #060d18;
+  color: #c8dce8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 核心动画 */
+@keyframes light-in {
+  0% { left: -100%; }
+  100% { left: 400%; }
+}
+
+@keyframes circle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.text-light {
+  text-shadow: 0px 1px 10px #3EE5FF;
+}
+
+/* 侧边面板公共标题重构（适应新科技感风格） */
+.panel-title {
+  font-size: 14px;
+  font-family: 'MiSans-Demibold', serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #00c8ff;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.panel-title::before {
+  content: '';
+  width: 4px;
+  height: 14px;
+  background: var(--primary-color);
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--primary-color);
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 248, 255, 0.25);
+  border-radius: 4px;
+}
+
+/* 响应式布局适配 */
+@media screen and (max-width: 1600px) {
+  :root {
+    --text-md: 14px;
+    --text-sm: 13px;
+    --text-xs: 11px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  :root {
+    --text-md: 13px;
+    --text-sm: 12px;
+    --text-xs: 10px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .nav-links {
+    gap: 4px;
+  }
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+/* 高分辨率屏幕优化 */
+@media screen and (min-width: 2560px) {
+  :root {
+    --text-md: 18px;
+    --text-sm: 16px;
+    --text-xs: 14px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .top-nav,
+  .map-controls,
+  .layer-control-panel {
+    display: none !important;
+  }
+}
