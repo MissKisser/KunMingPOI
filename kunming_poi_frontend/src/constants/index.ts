@@ -40,16 +40,18 @@ export const CAROUSEL_CONFIG = {
 export const MAP_CONFIG = {
   /** 昆明市中心坐标 */
   CENTER: [102.7184, 25.0406] as [number, number],
-  /** 初始缩放级别（直接显示昆明市范围） */
-  INITIAL_ZOOM: 10,
+  /** 太空视角缩放级别（飞入起点） */
+  SPACE_ZOOM: 3,
+  /** 初始缩放级别（飞入起点） */
+  INITIAL_ZOOM: 3,
   /** 目标缩放级别 */
   TARGET_ZOOM: 9.5,
   /** 飞入动画持续时间（毫秒） */
-  FLY_DURATION: 2000,
+  FLY_DURATION: 3500,
   /** 俯仰角动画持续时间（毫秒） */
-  PITCH_DURATION: 800,
+  PITCH_DURATION: 1500,
   /** 目标俯仰角 */
-  TARGET_PITCH: 30,
+  TARGET_PITCH: 35,
   /** 看板展开等待时间（毫秒） */
   HEADER_DELAY: 100,
   /** 等待看板展开时间（毫秒） */
